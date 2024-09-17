@@ -1,6 +1,9 @@
-import json, random, re, shlex, math
+import json
+import random
+import re
+import shlex
+import math
 from rolling import *
-from globals import lw
 from errors import *
 from displays import *
 
@@ -9,145 +12,6 @@ from displays import *
 file = open("pyReader\path.txt")
 file_path = file.readline()
 print(file_path)
-
-
-
-
-
-
-
-
-
-# Displays all spell info
-def displaySpells(spells):
-    pass
-
-# Returns dice info from string
-
-
-def validDice(dice):
-    # current known issue i'm too lazy to fix:
-    # If more than 9 dice need to be rolled then the format doesn't work. I will fix this eventually probably
-    try:
-        if re.search("[0-9]d[0-9]+", dice):
-            return int(dice[0]), int(dice[2:])
-        else:
-            raise (Exception)
-    except:
-        raise _myInvalidDice()
-
-# Handle rolling
-
-
-def roll(userInput):
-    proficient, disadvantage, advantage, mod = getRollInfo(userInput)
-    count, sides = validDice(userInput[1])
-
-    sum = 0
-    print("Roll 1:")
-    for i in range(count):
-        roll = random.randint(1, sides)
-        print(f"Die {i+1}: {roll}")
-        sum += roll
-
-    if advantage or disadvantage:
-        print('-'*lw + "\nRoll 2")
-        tempSum = 0
-        for i in range(count):
-            roll = random.randint(1, sides)
-            print(f"Die {i+1}: {roll}")
-            tempSum += roll
-        print('-' * lw)
-        if (advantage and tempSum > sum) or (disadvantage and tempSum < sum):
-            print("Second roll wins")
-            sum = tempSum
-        else:
-            print("First roll stays")
-        print()
-
-    return sum+mod+(math.floor((proficient + 1)/4))
-
-# Handle spell casting
-
-
-def castSpell(userInput, spells):
-    userSpellName = userInput[1].replace("\"", "")
-    found = False
-    spell = {}
-    level = 1
-    diceCount = 0
-    diceSides = 0
-    for switch in userInput:
-        if re.search("-l=[0-9]+", switch):
-            level = int(switch[3:])
-    for tempSpell in spells:
-        if re.search(f".*{userSpellName}.*", tempSpell.get("name"), re.IGNORECASE):
-            found = True
-            spell = tempSpell
-
-    if not found:
-        raise _mySpellNotFound()
-    
-
-    print(spell.get("name"))
-    levelDicePairs = spell.get("higher_level_dice")
-    damageDice = spell.get("damage_dice")
-    diceCount, diceSides = validDice(damageDice)
-    if levelDicePairs:
-        if not damageDice:
-            raise _mySpellDamageNotFound()
-        for pair in levelDicePairs:
-            if level >= pair[0]:
-                diceCount, diceSides = validDice(pair[1])
-        # TODO: Add switches to this roll. Also fix the fact that you must pass in the full line to 
-        # roll() as if it was passed in via CLI. 
-        # Eventually it should just take "dice {switch list}" instead of "r dice {switch list}"
-        print()
-        args = ['r', f"{diceCount}d{diceSides}"]
-        if len(userInput) > 2:
-            for arg in userInput[2:]:
-                args.append(arg)
-        print(roll(args))
-    else:
-        pass
-        
-        
-
-
-
-
-
-# Pulls from a tuple of strings to get the values of advantage (bool) and mod (int)
-def getRollInfo(userInput):
-    advantage = 0
-    mod = 0
-    disadvantage = 0
-    proficient = 0
-
-    # Early exit for no arguments
-    if len(userInput) <= 2:
-        return [0, 0, 0, 0]
-
-    for switch in userInput[2:]:
-        if re.search("-a", switch):
-            advantage = True
-        if re.search("-m=[0-9]+", switch):
-            mod = int(switch[3:])
-        if re.search("-d", switch):
-            disadvantage = True
-        if re.search("-p=[0-9]+", switch):
-            #switch[3:] will contain the proficiency bonus
-            proficient = int(switch[3:])
-
-    return proficient, disadvantage, advantage, mod
-
-
-
-        
-
-
-
-
 
 
 # Load JSON data from the file

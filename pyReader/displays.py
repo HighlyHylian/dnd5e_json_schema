@@ -1,6 +1,8 @@
-from globals import lw
+from globalVariables import lw
 
 # Display weapon details
+
+
 def display_weapons(weapons):
     print("-" * (lw + 1) + "WEAPONS" + "-" * 22)
     for weapon in weapons:
@@ -24,7 +26,6 @@ def display_weapons(weapons):
         print(f"Damage: {damage}")
         print(f"Damage Type: {damage_type}")
 
-
         if range_info:
             range_short = range_info.get('short', 'None')
             range_long = range_info.get('long', 'None')
@@ -37,6 +38,8 @@ def display_weapons(weapons):
     print()
 
 # Displays class info
+
+
 def display_classes(classes, userInput):
     # TODO: Add arguments (list what parts of the class)
     print("-" * (lw+2) + "CLASSES" + "-" * (lw+1))
@@ -71,6 +74,8 @@ def display_classes(classes, userInput):
             print()
 
 # Display proficiency info
+
+
 def display_proficiencies(weapon_proficiencies, armor_proficiencies, tool_proficiencies):
     # TODO: Add arguments to choose weapon/armour/tool displays
     print("-" * (lw-5) + "WEAPON PROFICIENCIES" + "-" * (lw-5))
@@ -88,6 +93,8 @@ def display_proficiencies(weapon_proficiencies, armor_proficiencies, tool_profic
     print("-" * 50 + '\n')
 
 # Display race info
+
+
 def display_race(race):
     # Gather data
     subtype = race.get('subtype')
@@ -122,6 +129,8 @@ def display_race(race):
         # TODO
 
 # Function to display equipment details
+
+
 def display_equipment(equipment):
     print("-" * lw + "EQUIPMENT" + "-" * (lw+1))
 
@@ -151,6 +160,8 @@ def display_equipment(equipment):
     print()
 
 # Function to display weapon details
+
+
 def display_weapons(weapons):
     print("-" * (lw + 1) + "WEAPONS" + "-" * 22)
     for weapon in weapons:
@@ -174,7 +185,6 @@ def display_weapons(weapons):
         print(f"Damage: {damage}")
         print(f"Damage Type: {damage_type}")
 
-
         if range_info:
             range_short = range_info.get('short', 'None')
             range_long = range_info.get('long', 'None')
@@ -185,3 +195,9 @@ def display_weapons(weapons):
         print(f"Equipped: {equipped}")
         print("-" * lw * 2)
     print()
+
+# Displays all spell info
+
+
+def displaySpells(spells):
+    pass
