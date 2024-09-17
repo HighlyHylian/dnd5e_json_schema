@@ -2,8 +2,8 @@ import math, random, errors, re
 from globalVariables import *
 from errors import *
 
-# Does saving throw logic
 def savingThrow(userInput, abilityScores):
+# Does saving throw logic
     modifier = 0
     if not len(userInput) > 1:
         raise errors._myStFormatError()
@@ -29,8 +29,8 @@ def savingThrow(userInput, abilityScores):
     print(f"Modifier:\n{modifier}")
     print(f"Roll:\n{rollValue}")
 
-# Pulls from a tuple of strings to get the values of advantage (bool) and mod (int)
 def getRollInfo(userInput):
+# Pulls from a tuple of strings to get the values of advantage (bool) and mod (int)
     advantage = 0
     mod = 0
     disadvantage = 0
@@ -53,13 +53,15 @@ def getRollInfo(userInput):
 
     return proficient, disadvantage, advantage, mod
 
-# Casts spell from character sheet given a spell name
-# Supported switches in regex format: 
-# "-l=[0-9]+" (cast at levvel [0-9]+) 
-# "-a" (cast at advantage)
-# "-d" (cast at disadvantage)
-# "-m=[0-9]+" (cast with modifier [0-9]+)
 def castSpell(userInput, spells):
+    '''
+    Casts spell from character sheet given a spell name
+    Supported switches in regex format: 
+    -l=[0-9]+" (cast at level [0-9]+) 
+    -a (cast at advantage)
+    -d (cast at disadvantage)"""
+    -m=[0-9]+ (cast with modifier [0-9]+)
+    '''
     userSpellName = userInput[1].replace("\"", "")
     found = False
     spell = {}

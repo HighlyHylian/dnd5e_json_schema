@@ -1,9 +1,8 @@
 from globalVariables import lw
 
-# Display weapon details
-
 
 def display_weapons(weapons):
+    # Display weapon details
     print("-" * (lw + 1) + "WEAPONS" + "-" * 22)
     for weapon in weapons:
         name = weapon.get('name', 'Unknown')
@@ -37,10 +36,9 @@ def display_weapons(weapons):
         print("-" * lw * 2)
     print()
 
-# Displays class info
-
 
 def display_classes(classes, userInput):
+    # Displays class info
     # TODO: Add arguments (list what parts of the class)
     print("-" * (lw+2) + "CLASSES" + "-" * (lw+1))
 
@@ -73,10 +71,9 @@ def display_classes(classes, userInput):
                 print("." * 20)
             print()
 
-# Display proficiency info
-
 
 def display_proficiencies(weapon_proficiencies, armor_proficiencies, tool_proficiencies):
+    # Display proficiency info
     # TODO: Add arguments to choose weapon/armour/tool displays
     print("-" * (lw-5) + "WEAPON PROFICIENCIES" + "-" * (lw-5))
     for p in weapon_proficiencies:
@@ -92,10 +89,10 @@ def display_proficiencies(weapon_proficiencies, armor_proficiencies, tool_profic
 
     print("-" * 50 + '\n')
 
-# Display race info
-
 
 def display_race(race):
+    # Display race info
+
     # Gather data
     subtype = race.get('subtype')
     size = race.get('size')
@@ -128,10 +125,9 @@ def display_race(race):
         print("-" * (lw+2) + "SENSES" + "-" * (lw+2))
         # TODO
 
-# Function to display equipment details
-
 
 def display_equipment(equipment):
+    # Function to display equipment details
     print("-" * lw + "EQUIPMENT" + "-" * (lw+1))
 
     for item in equipment:
@@ -159,10 +155,9 @@ def display_equipment(equipment):
         print("." * lw)
     print()
 
-# Function to display weapon details
-
 
 def display_weapons(weapons):
+    # Function to display weapon details
     print("-" * (lw + 1) + "WEAPONS" + "-" * 22)
     for weapon in weapons:
         name = weapon.get('name', 'Unknown')
@@ -196,8 +191,7 @@ def display_weapons(weapons):
         print("-" * lw * 2)
     print()
 
-# Displays all spell info
-
 
 def displaySpells(spells):
+    # Displays all spell info
     pass
