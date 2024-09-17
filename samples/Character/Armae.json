@@ -1,0 +1,175 @@
+{
+    "name": "Armae",
+    "player": {
+        "name": "Michelle"
+    },
+    "race": {
+        "name": "Half-Elf",
+        "subtype": "None",
+        "traits": [
+            {
+                "name": "City Secrets",
+                "description": "You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.\nKnow secret patterns and flow to cities, can find passages through urban sprawl that others miss."
+            },
+            {
+                "name": "Fey Ancestry",
+                "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            },
+            {
+                "name": "Darkvision",
+                "description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            }
+        ]
+    },
+    "classes": [{
+            "name": "Cleric",
+            "subtype": "Trickery Domain",
+            "level": 1,
+            "hit_die": 8,
+            "spellcasting": "cha",
+            "features": [
+                {
+                    "name": "Spellcasting",
+                    "description": "To cast a spell, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest."
+                },
+                {
+                    "name": "Ritual Casting",
+                    "description": "You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared."
+                },
+                {
+                    "name": "Blessing of the Trickster",
+                    "description": "Starting when you choose this domain at 1st level, you can use your action to touch a willing creature other than yourself to give it advantage on Dexterity (Stealth) checks. This blessing lasts for 1 hour or until you use this feature again."
+                },
+                {
+                    "name": "Channel Divinity: Invoke Duplicity",
+                    "description": "Starting at 2nd level, you can use your Channel Divinity to create an illusory duplicate of yourself.\nAs an action, you create a perfect illusion of yourself that lasts for 1 minute, or until you lose your concentration (as if you were concentrating on a spell). The illusion appears in an unoccupied space that you can see within 30 feet of you. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but it must remain within 120 feet of you.\nFor the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how distracting the illusion is to the target."
+                },
+                {
+                    "name": "Channel Divinity: Cloak of Shadows",
+                    "description": "Starting at 6th level, you can use your Channel Divinity to vanish.\nAs an action, you become invisible until the end of your next turn. You become visible if you attack or cast a spell."
+                },
+                {
+                    "name": "Divine Strike",
+                    "description": "At 8th level, you gain the ability to infuse your weapon strikes with poison – a gift from your deity. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 poison damage to the target. When you reach 14th level, the extra damage increases to 2d8."
+                },
+                {
+                    "name": "Improved Duplicity",
+                    "description": "At 17th level, you can create up to four duplicates of yourself, instead of one, when you use Invoke Duplicity. As a bonus action on your turn, you can move any number of them up to 30 feet, to a maximum range of 120 feet."
+                }
+            ]
+        }],
+    "alignment": "chaotic good",
+    "speed": {
+        "walk": 30
+    },
+    "hit_points": {
+        "max": 9,
+        "current": 9
+    },
+    "ability_scores": {
+        "str": 11,
+        "dex": 14,
+        "con": 13,
+        "int": 11,
+        "wis": 12,
+        "cha": 17
+    },
+    "skills": {
+        "Insight": true,
+        "Persuasion": true,
+        "Sleight of hand": true,
+        "Stealth": true
+    },
+    "armor_class": {
+        "value": 12,
+        "description": "Leather armor"
+    },
+    "saving_throws": {
+        "wis": true,
+        "cha": true
+    },
+    "languages": ["Common", "Elvish", "Celestial"],
+    "background": {
+        "name": "Urchin"
+    },
+    "details": {
+        "personality": "You once ran 25 miles to warn your clan of an approaching threat, and you'd do the same again.",
+        "ideal": "To dishonor yourself is to dishonor the clan.",
+        "bond": "Your clan is the most important thing in your life, even when they are far from you.",
+        "flaw": " It is nature's way that the strong survive and the weak perish."
+    },
+    "weapon_proficiencies":[
+        "Simple Weapons"
+    ],
+    "armor_proficiencies":[
+        "Light Armor",
+        "Medium Armor",
+        "Shields"
+    ],
+    "tool_proficiencies":[
+        "Disguise Kit",
+        "Thieves' Tools"
+    ],
+    "weapons": [
+        {
+            "name": "Mace",
+            "damage": {
+                "dice": {
+                    "sides": 6,
+                    "count": 1
+                },
+                "type": "Bludgeoning"
+            },
+            "equipped": true,
+            "weight": 4
+        },
+        {
+            "name": "Light Crossbow",
+            "damage": {
+                "dice": {
+                    "sides": 8,
+                    "count": 1
+                },
+                "type": "Piercing"
+            },
+            "range": {
+                "short": 80,
+                "long": 320
+            },
+            "properties": {
+                "Ammunition": true,
+                "Loading": true,
+                "Two-Handed": true
+            },
+            "weight": 5,
+            "equipped": false
+
+        }
+    ],
+    "equipment":[
+        {
+            "name": "GP",
+            "quantity": 10
+        },
+        {
+            "name": "Feanor",
+            "description": "A small mouse you've had for a year. Every time your mouse passes, you find a new one as soon as possible."
+        }
+    ],
+    "spells": [
+        {
+            "name": "Sacred Flame",
+            "description": "Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 radiant damage. The target gains no benefit from cover for this saving throw.",
+            "level": "Cantrip",
+            "casting_time": "1 Action",
+            "range_area": "60 ft.",
+            "attack_save": "dex",
+            "duration": "Instantaneous",
+            "damage_effect": "Radiant",
+            "components": ["V", "S"],
+            "higher_level": "The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
+            "higher_level_dice":[[5, "2d8"],[11, "3d8"],[17, "4d8"]],
+            "damage_dice" : "1d8"
+        }
+    ]
+}

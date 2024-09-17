@@ -18,6 +18,10 @@
             "type": "string",
             "input": "textarea"
         },
+        "higher_level_dice:": {
+            "type": "string",
+            "input": "textarea"
+        },
         "level": {
             "type": "string",
             "examples": ["Cantrip", "1", "2", "3", "4"]
@@ -63,6 +67,10 @@
         "damage_effect": {
             "type": "string",
             "examples": ["Acid"]
+        },
+        "damage_dice": {
+            "type": "string",
+            "examples": ["1d8"]
         },
         "tags": {
             "$ref": "tag.schema.json",

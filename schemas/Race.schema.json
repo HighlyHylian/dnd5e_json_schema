@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "Race.schema.json",
     "title": "D&D 5e Race",
-    "description": "JSON Schema for D&D 5e Creature Race.",
+    "description": "JSON Schema for D&D 5e Creature Race",
     "$comment": "version 0.1.1",
     "type": "object",
     "required": ["name"],

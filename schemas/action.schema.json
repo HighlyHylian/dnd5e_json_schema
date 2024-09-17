@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "action.schema.json",
-    "title": "JSON Schema for D&D 5e Creature action.",
+    "title": "JSON Schema for D&D 5e Creature action",
     "description": "This schema describes an action the creature/character may use.",
     "$comment": "version 0.1.1",
     "type": "object",

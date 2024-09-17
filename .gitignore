@@ -2,3 +2,5 @@ package-lock.json
 node_modules/
 open_cmd.bat
 /nbproject/
+pyReader/path.txt
+pyReader/dataParser.py
