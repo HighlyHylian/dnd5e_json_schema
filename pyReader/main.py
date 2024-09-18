@@ -40,7 +40,7 @@ while (exit != True):
     match userInput[0]:
         case 'e' | 'exit':
             break
-        case 'l' | 'list':
+        case 'd' | 'display':
             for value in userInput[1:]:
                 match value:
                     case 'p' | 'proficiencies':
@@ -55,7 +55,7 @@ while (exit != True):
                     case 'w' | 'weapons':
                         display_weapons(weapons)
                     case 's' | 'spells':
-                        display_spells(spells)
+                        display_spells(userInput, spells)
                     case _:
                         pass
         case 'c' | 'cast':

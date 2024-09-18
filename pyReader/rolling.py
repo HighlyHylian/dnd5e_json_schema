@@ -1,4 +1,5 @@
-import math, random, errors, re
+import math, random, errors
+from re import search, IGNORECASE
 from globalVariables import *
 from errors import *
 
@@ -41,13 +42,13 @@ def getRollInfo(userInput):
         return [0, 0, 0, 0]
 
     for switch in userInput[2:]:
-        if re.search("-a", switch):
+        if search("-a", switch):
             advantage = True
-        if re.search("-m=[0-9]+", switch):
+        if search("-m=[0-9]+", switch):
             mod = int(switch[3:])
-        if re.search("-d", switch):
+        if search("-d", switch):
             disadvantage = True
-        if re.search("-p=[0-9]+", switch):
+        if search("-p=[0-9]+", switch):
             #switch[3:] will contain the proficiency bonus
             proficient = int(switch[3:])
 
@@ -69,10 +70,10 @@ def castSpell(userInput, spells):
     diceCount = 0
     diceSides = 0
     for switch in userInput:
-        if re.search("-l=[0-9]+", switch):
+        if search("-l=[0-9]+", switch):
             level = int(switch[3:])
     for tempSpell in spells:
-        if re.search(f".*{userSpellName}.*", tempSpell.get("name"), re.IGNORECASE):
+        if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
             found = True
             spell = tempSpell
 
@@ -136,7 +137,7 @@ def validDice(dice):
     # current known issue i'm too lazy to fix:
     # If more than 9 dice need to be rolled then the format doesn't work. I will fix this eventually probably
     try:
-        if re.search("[0-9]d[0-9]+", dice):
+        if search("[0-9]d[0-9]+", dice):
             return int(dice[0]), int(dice[2:])
         else:
             raise (Exception)

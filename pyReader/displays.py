@@ -1,4 +1,5 @@
 from globalVariables import lw
+from re import search, IGNORECASE
 
 
 def display_weapons(weapons):
@@ -192,6 +193,29 @@ def display_weapons(weapons):
     print()
 
 
-def displaySpells(spells):
+def display_spells(userInput, spells):
+    # Display spells or specific spell
+
+    # If searching for a specific spell, do that and then break early
+
+    searching = False
+    if len(userInput) > 2 and search("\".*\"", userInput[2]):
+        searching = True
+        #TODO: HERE
+        
+
+    if searching:
+        for tempSpell in spells:
+            if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
+                found = True
+                spell = tempSpell
+
+
     # Displays all spell info
-    pass
+    for spell in spells:
+        print(f"Name: {spell.get("name")}")
+        print(f"Desc: {spell.get("description")}")
+        # kind of unenecessary so I axed it. Feel free to restore
+        # print(f"Level: {spell.get("level")}")
+        print(f"Casting Time: {spell.get("casting_time")}")
+        print(f"")
