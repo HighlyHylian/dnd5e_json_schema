@@ -201,14 +201,15 @@ def display_spells(userInput, spells):
     searching = False
     if len(userInput) > 2 and search("\".*\"", userInput[2]):
         searching = True
-        #TODO: HERE
-        
-
-    if searching:
-        for tempSpell in spells:
-            if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
-                found = True
-                spell = tempSpell
+        userSpellName = userInput[1].replace("\"", "")
+        if searching:
+            for tempSpell in spells:
+                if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
+                    found = True
+                    spell = tempSpell
+                    break
+            if not found:
+                raise Exception("Spell not found")
 
 
     # Displays all spell info
