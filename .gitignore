@@ -4,3 +4,7 @@ open_cmd.bat
 /nbproject/
 pyReader/path.txt
 pyReader/dataParser.py
+# Python temp files
+__pycache__/
+*.py[cod]
+*$py.class
