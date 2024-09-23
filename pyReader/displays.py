@@ -192,24 +192,26 @@ def display_weapons(weapons):
         print("-" * lw * 2)
     print()
 
+def display_one_spell(spell):
+    print(f"Name: {spell.get("name")}")
+    print(f"Desc: {spell.get("description")}")
+    # kind of unenecessary so I axed it. Feel free to restore
+    # print(f"Level: {spell.get("level")}")
+    print(f"Casting Time: {spell.get("casting_time")}")
+    print(f"")
 
 def display_spells(userInput, spells):
     # Display spells or specific spell
 
     # If searching for a specific spell, do that and then break early
-
-    searching = False
-    if len(userInput) > 2 and search("\".*\"", userInput[2]):
-        searching = True
-        userSpellName = userInput[1].replace("\"", "")
-        if searching:
-            for tempSpell in spells:
-                if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
-                    found = True
-                    spell = tempSpell
-                    break
-            if not found:
-                raise Exception("Spell not found")
+    if len(userInput) > 2:
+        userSpellName = userInput[2].replace("\"", "")
+        for tempSpell in spells:
+            if search(f".*{userSpellName}.*", tempSpell.get("name"), IGNORECASE):
+                found = True
+                display_one_spell(tempSpell)
+        if not found:
+            raise Exception("Spell not found")
 
 
     # Displays all spell info
