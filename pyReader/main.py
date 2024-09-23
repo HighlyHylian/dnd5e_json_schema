@@ -36,6 +36,7 @@ print(name+'\'s sheet')
 # Loop for cli
 while (exit != True):
     userInput = shlex.split(input("> "), posix=False)
+    print('-' * lw * 2)
 
     match userInput[0]:
         case 'e' | 'exit':

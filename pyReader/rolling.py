@@ -1,4 +1,5 @@
 import math, random, errors
+import shlex
 from re import search, IGNORECASE
 from globalVariables import *
 from errors import *
@@ -134,11 +135,10 @@ def roll(userInput):
         
 # Returns dice info from string
 def validDice(dice):
-    # current known issue i'm too lazy to fix:
-    # If more than 9 dice need to be rolled then the format doesn't work. I will fix this eventually probably
     try:
-        if search("[0-9]d[0-9]+", dice):
-            return int(dice[0]), int(dice[2:])
+        if search("[0-9]+d[0-9]+", dice):
+            dice = dice.split('d')
+            return int(dice[0]), int(dice[1])
         else:
             raise (Exception)
     except:
