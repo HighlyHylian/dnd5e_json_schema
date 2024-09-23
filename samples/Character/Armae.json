@@ -168,7 +168,7 @@
             "damage_effect": "Radiant",
             "components": ["V", "S"],
             "higher_level": "The spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).",
-            "higher_level_dice":[[5, "2d8"],[11, "3d8"],[17, "4d8"]],
+            "cantrip_level_dice":[[5, "2d8"],[11, "3d8"],[17, "4d8"]],
             "damage_dice" : "1d8"
         },
         {

@@ -22,6 +22,10 @@
             "type": "string",
             "input": "textarea"
         },
+        "cantrip_level_dice": {
+            "type": "string",
+            "input": "textarea"
+        },
         "level": {
             "type": "string",
             "examples": ["Cantrip", "1", "2", "3", "4"]

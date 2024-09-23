@@ -84,6 +84,7 @@ def castSpell(userInput, spells):
 
     print(spell.get("name"))
     levelDicePairs = spell.get("higher_level_dice")
+    cantripLevelDicePairs = spell.get("cantrip_level_dice")
     damageDice = spell.get("damage_dice")
     diceCount, diceSides = validDice(damageDice)
     if levelDicePairs:
@@ -92,6 +93,8 @@ def castSpell(userInput, spells):
         for pair in levelDicePairs:
             if level >= pair[0]:
                 diceCount, diceSides = validDice(pair[1])
+        for pair in cantripLevelDicePairs:
+            
         # TODO: Add switches to this roll. Also fix the fact that you must pass in the full line to 
         # roll() as if it was passed in via CLI. 
         # Eventually it should just take "dice {switch list}" instead of "r dice {switch list}"
