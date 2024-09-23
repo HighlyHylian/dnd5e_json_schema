@@ -181,7 +181,7 @@
             "damage_effect": "Radiant",
             "components": ["V", "S"],
             "higher_level": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
-            "higher_level_dice": [[2, "5d6"], [3, "6d6"], [4, "7d6"], [5, "8d6"], [6, "9d6"], [7, "10d6"], [8, "11d6"], [9, "12d6"], [10, "13d6"], [11, "14d6"], [12, "15d6"], [13, "16d6"], [14, "17d6"], [15, "18d6"], [16, "19d6"], [17, "20d6"], [18, "21d6"], [19, "22d6"], [20, "23d6"]],
+            "higher_level_dice": [[2, "5d6"], [3, "6d6"], [4, "7d6"], [5, "8d6"], [6, "9d6"], [7, "10d6"], [8, "11d6"], [9, "12d6"]],
             "damage_dice": "4d6"
         }
 
