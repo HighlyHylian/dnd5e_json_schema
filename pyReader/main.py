@@ -29,6 +29,7 @@ ability_scores = data.get('ability_scores', [])
 weapons = data.get('weapons', [])
 equipment = data.get('equipment', [])
 spells = data.get('spells', [])
+xp = data.get('xp', int)
 
 # Display name
 print(name+'\'s sheet')
@@ -61,7 +62,7 @@ while (exit != True):
                         pass
         case 'c' | 'cast':
             try:
-                castSpell(userInput, spells)
+                castSpell(userInput, spells, xp)
             except _mySpellNotFound as e:
                 print(e)
             except:

@@ -3,6 +3,7 @@ import shlex
 from re import search, IGNORECASE
 from globalVariables import *
 from errors import *
+from conversions import convert_xp_to_level
 
 def savingThrow(userInput, abilityScores):
 # Does saving throw logic
@@ -55,7 +56,7 @@ def getRollInfo(userInput):
 
     return proficient, disadvantage, advantage, mod
 
-def castSpell(userInput, spells):
+def castSpell(userInput, spells, xp):
     '''
     Casts spell from character sheet given a spell name
     Supported switches in regex format: 
@@ -85,27 +86,30 @@ def castSpell(userInput, spells):
     print(spell.get("name"))
     levelDicePairs = spell.get("higher_level_dice")
     cantripLevelDicePairs = spell.get("cantrip_level_dice")
+
+    # Get dice info
     damageDice = spell.get("damage_dice")
     diceCount, diceSides = validDice(damageDice)
+    
+    # This is a little ugly and should be fixed
     if levelDicePairs:
-        if not damageDice:
-            raise _mySpellDamageNotFound()
         for pair in levelDicePairs:
             if level >= pair[0]:
                 diceCount, diceSides = validDice(pair[1])
+    if cantripLevelDicePairs:
         for pair in cantripLevelDicePairs:
-            
+            if convert_xp_to_level(xp) > pair[0]:
+                diceCount, diceSides = validDice(pair[1])
+
         # TODO: Add switches to this roll. Also fix the fact that you must pass in the full line to 
         # roll() as if it was passed in via CLI. 
         # Eventually it should just take "dice {switch list}" instead of "r dice {switch list}"
-        print()
-        args = ['r', f"{diceCount}d{diceSides}"]
-        if len(userInput) > 2:
-            for arg in userInput[2:]:
-                args.append(arg)
-        print(roll(args))
-    else:
-        pass
+    args = ['r', f"{diceCount}d{diceSides}"]
+    if len(userInput) > 2:
+        for arg in userInput[2:]:
+            args.append(arg)
+    print(roll(args))
+        
 
 # Rolling Main Function
 def roll(userInput):
