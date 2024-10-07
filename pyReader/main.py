@@ -9,9 +9,9 @@ from displays import *
 
 
 # This was just to hide my user path. Should've thought about that earlier in the commit history. Whoops
-file = open("pyReader\path.txt")
+file = open(r"pyReader\path.txt")
 file_path = file.readline()
-print(file_path)
+# print(file_path)
 
 
 # Load JSON data from the file

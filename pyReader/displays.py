@@ -2,8 +2,10 @@ from globalVariables import lw
 from re import search, IGNORECASE, sub
 from errors import *
 
+
 def capitalizeWords(s):
-  return sub(r'\w+', lambda m:m.group(0).capitalize(), s)
+  return sub(r'\w+', lambda m: m.group(0).capitalize(), s)
+
 
 def display_weapons(weapons):
     # Display weapon details
@@ -195,24 +197,27 @@ def display_weapons(weapons):
         print("-" * lw * 2)
     print()
 
+
 def display_one_spell(spell):
     print(f"Name: {spell.get("name")}")
     print(f"Desc: {spell.get("description")}")
-    optional_titles = {"higher_level", "material", "ritual", "school", "attack_save", "damage_effect", "tags"}
+    optional_titles = {"higher_level", "material", "ritual",
+                       "school", "attack_save", "damage_effect", "tags"}
     optionals = []
     for title in optional_titles:
         optionals.append([title, spell.get(title)])
     for optionalAttribute in optionals:
         if optionalAttribute[1]:
-            print(f"{capitalizeWords(optionalAttribute[0])}: {optionalAttribute[1]}")
-    
+            print(f"{capitalizeWords(optionalAttribute[0])}: {
+                  optionalAttribute[1]}")
+
     # kind of unenecessary so I axed it. Feel free to restore
     # print(f"Level: {spell.get("level")}")
     print(f"Casting Time: {spell.get("casting_time")}")
     print(f"Range: {spell.get("range_area")}")
     print(f"Components: {spell.get("components")}")
     print(f"Duration: {spell.get("duration")}")
-    
+
 
 def display_spells(userInput, spells):
     # Display spells or specific spell
@@ -226,7 +231,6 @@ def display_spells(userInput, spells):
                 display_one_spell(tempSpell)
                 return
         raise _mySpellNotFound()
-
 
     # Displays all spell info
     for spell in spells:

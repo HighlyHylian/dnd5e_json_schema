@@ -98,7 +98,7 @@ def castSpell(userInput, spells, xp):
                 diceCount, diceSides = validDice(pair[1])
     if cantripLevelDicePairs:
         for pair in cantripLevelDicePairs:
-            if convert_xp_to_level(xp) > pair[0]:
+            if convert_xp_to_level(xp) >= pair[0]:
                 diceCount, diceSides = validDice(pair[1])
 
         # TODO: Add switches to this roll. Also fix the fact that you must pass in the full line to 
