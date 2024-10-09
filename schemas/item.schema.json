@@ -19,8 +19,17 @@
             "input": "textarea"
         },
         "magic": {
-            "type": "boolean",
-            "default": "false"
+            "type": "object",
+            "properties": {
+                "magic": {
+                    "type": "boolean",
+                    "default": "false"
+                },
+                "attuned": {
+                    "type": "boolean",
+                    "default": "false"
+                }
+            }
         },
         "source": {
             "$ref": "source.schema.json"
