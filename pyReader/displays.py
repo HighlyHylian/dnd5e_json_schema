@@ -208,8 +208,7 @@ def display_one_spell(spell):
         optionals.append([title, spell.get(title)])
     for optionalAttribute in optionals:
         if optionalAttribute[1]:
-            print(f"{capitalizeWords(optionalAttribute[0])}: {
-                  optionalAttribute[1]}")
+            print(f"{capitalizeWords(optionalAttribute[0])}: {optionalAttribute[1]}")
 
     # kind of unenecessary so I axed it. Feel free to restore
     # print(f"Level: {spell.get("level")}")
