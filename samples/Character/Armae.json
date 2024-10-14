@@ -65,7 +65,8 @@
     },
     "hit_points": {
         "max": 9,
-        "current": 9
+        "current": 9,
+        "temporary": 2
     },
     "ability_scores": {
         "str": 11,
